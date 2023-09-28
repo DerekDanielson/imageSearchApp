@@ -87,3 +87,21 @@ form {
     background-color: rgba(0, 0, 0, .1);
 
 }
+
+#show-more-btn {
+    background-color: #008cba;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    border-radius: 5px;
+    margin: 20px auto;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+}
+
+#show-more-btn:hover {
+    background-color: #0077b5;
+}

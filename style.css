@@ -74,3 +74,10 @@ form {
     height: 200px;
     object-fit: cover;
 }
+
+.search-img a {
+    padding: 10px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+}

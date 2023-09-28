@@ -54,6 +54,7 @@ form {
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .search-img {
@@ -104,4 +105,25 @@ form {
 
 #show-more-btn:hover {
     background-color: #0077b5;
+}
+
+@media screen and (max-width: 768px) {
+    .search-img {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .search-img {
+        width: 100%;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    #search-input {
+        margin-bottom: 20px;
+        width: 85%;
+    }
 }

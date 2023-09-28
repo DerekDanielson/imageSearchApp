@@ -80,4 +80,10 @@ form {
     display: block;
     color: #333;
     text-decoration: none;
+    transition: background-color .3s ease-in-out;
+}
+
+.search-img:hover a {
+    background-color: rgba(0, 0, 0, .1);
+
 }

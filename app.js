@@ -24,11 +24,26 @@ async function searchImages(){
 
     const results = data.results;
 
-    const imageWrapper = document.createElement('div');
-    imageWrapper.classList.add('search-results');
+    results.map((result)=>{
+        const imageWrapper = document.createElement('div');
+        imageWrapper.classList.add('search-results');
+        const image = document.createElement('img');
+        image.src = result.urls.small;
+        image.alt = result.alt_description;
+        const imageLink = document.createElement('a');
+        imageLink.href = result.links.html;
+        imageLink.target = '_blank';
+        imageLink.textContent = result.alt_description;
+
+        imageWrapper.appendChild(image);
+        imageWrapper.appendChild(imageLink);
+        searchResultEl.appendChild(imageWrapper);
+    }); 
+
+    page++;
 
     if (page > 1){
-        showMoreBtn.style.display = block;
+        showMoreBtn.style.display = 'block';
     };
 };
 
@@ -38,3 +53,6 @@ formEl.addEventListener('submit', (e)=>{
     searchImages();
 });
 
+showMoreBtn.addEventListener('click', ()=>{
+    searchImages();
+});

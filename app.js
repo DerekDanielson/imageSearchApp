@@ -17,10 +17,24 @@ async function searchImages(){
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
+
+    if (page === 1){
+        searchResultEl.innerHTML = '';
+    }
+
+    const results = data.results;
+
+    const imageWrapper = document.createElement('div');
+    imageWrapper.classList.add('search-results');
+
+    if (page > 1){
+        showMoreBtn.style.display = block;
+    };
 };
 
 formEl.addEventListener('submit', (e)=>{
     e.preventDefault();
+    page = 1;
     searchImages();
 });
 

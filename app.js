@@ -5,3 +5,9 @@ const formEl = document.querySelector('form');
 const searchInputEl = document.getElementById('search-input');
 const searchResultEl = document.querySelector('.search-results');
 const showMoreBtn = document.getElementById('show-more-btn');
+
+
+formEl.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    searchImages();
+});

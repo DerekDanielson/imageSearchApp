@@ -9,7 +9,7 @@ const showMoreBtn = document.getElementById('show-more-btn');
 let inputData = '';
 let page = 1;
 
-
+//Retrieve data from API
 async function searchImages(){
     inputData = searchInputEl.value;
     const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${apiKey}`;
@@ -21,14 +21,19 @@ async function searchImages(){
         searchResultEl.innerHTML = '';
     }
 
+    //Select data
     const results = data.results;
 
+    //Results
     results.map((result)=>{
+        //Image div
         const imageWrapper = document.createElement('div');
         imageWrapper.classList.add('search-img');
+        //Image result
         const image = document.createElement('img');
         image.src = result.urls.small;
         image.alt = result.alt_description;
+        //Image text and link
         const imageLink = document.createElement('a');
         imageLink.href = result.links.html;
         imageLink.target = '_blank';
@@ -40,18 +45,21 @@ async function searchImages(){
     }); 
 
     page++;
-
+    
+    //Display Show more button
     if (page > 1){
         showMoreBtn.style.display = 'block';
     };
 };
 
+//Form event listener
 formEl.addEventListener('submit', (e)=>{
     e.preventDefault();
     page = 1;
     searchImages();
 });
 
+//Show more button event listener
 showMoreBtn.addEventListener('click', ()=>{
     searchImages();
 });
